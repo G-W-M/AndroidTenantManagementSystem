@@ -1,11 +1,8 @@
-package com.mobile.androidrentalsystem
+package com.mobile.tenantrentalsystem
 
 import android.os.Bundle
-import com.mobile.androidrentalsystem.databinding.ActivityMainBinding
+import com.mobile.tenantrentalsystem.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.activity.enableEdgeToEdge
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,18 +10,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.saveButton.setOnClickListener {
-
             val name = binding.tenantNameEditText.text.toString()
             val phone = binding.phoneEditText.text.toString()
             val rent = binding.rentEditText.text.toString()
-
             val tenant = Tenant(name, phone, rent)
-
             binding.tenant = tenant
         }
     }

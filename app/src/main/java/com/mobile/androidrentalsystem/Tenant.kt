@@ -1,4 +1,4 @@
-package com.mobile.androidrentalsystem
+package com.mobile.tenantrentalsystem
 
 data class Tenant(
     val name: String,

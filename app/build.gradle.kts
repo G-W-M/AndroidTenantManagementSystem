@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mobile.androidrentalsystem"
+    namespace = "com.mobile.tenantrentalsystem"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
