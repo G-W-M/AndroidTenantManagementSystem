@@ -1,4 +1,4 @@
-package com.mobile.androidrentalsystem
+package com.mobile.tenantmanagementsystem
 
 import org.junit.Test
 

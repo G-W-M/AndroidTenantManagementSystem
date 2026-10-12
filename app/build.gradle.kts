@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.legacy.kapt)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.mobile.tenantrentalsystem"
+    namespace = "com.mobile.tenantmanagementsystem"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.mobile.androidrentalsystem"
+        applicationId = "com.mobile.tenantmanagementsystem"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -51,4 +52,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.2")
 }

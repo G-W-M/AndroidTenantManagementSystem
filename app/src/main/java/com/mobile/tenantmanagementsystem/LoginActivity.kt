@@ -1,12 +1,11 @@
-package com.mobile.tenantrentalsystem
+package com.mobile.tenantmanagementsystem
 
-
-import com.mobile.tenantrentalsystem.databinding.ActivityLoginBinding
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.net.Uri
+import com.mobile.tenantmanagementsystem.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {

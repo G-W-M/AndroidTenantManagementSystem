@@ -1,14 +1,10 @@
-package com.mobile.tenantrentalsystem
+package com.mobile.tenantmanagementsystem
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.mobile.tenantrentalsystem.R
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
-import com.mobile.tenantrentalsystem.databinding.ActivityRegisterBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.mobile.tenantmanagementsystem.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 
