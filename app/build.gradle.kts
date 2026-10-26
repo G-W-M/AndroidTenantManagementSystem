@@ -42,6 +42,7 @@ android {
 
 }
 
+
 dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
@@ -54,4 +55,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     implementation("androidx.navigation:navigation-fragment-ktx:2.10.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.10.2")
+    implementation("com.google.android.material:material:1.12.0")
 }

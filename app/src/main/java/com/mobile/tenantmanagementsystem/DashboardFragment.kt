@@ -2,11 +2,14 @@
 package com.mobile.tenantmanagementsystem
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.mobile.tenantmanagementsystem.databinding.FragmentDashboardBinding
+
 
 class DashboardFragment : Fragment() {
 
@@ -15,16 +18,24 @@ class DashboardFragment : Fragment() {
     private val binding: FragmentDashboardBinding
         get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onCreate")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onCreateView")
+
         _binding = FragmentDashboardBinding.inflate(
             inflater,
             container,
             false
         )
+
         return binding.root
     }
 
@@ -33,17 +44,63 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onViewCreated")
 
+        // Calculate the latest tenant count and rent total.
         val tenantCount = TenantRepository.tenants.size
         val totalRent = TenantRepository.totalRent()
 
         binding.tenantCountTextView.text = "Tenants\n$tenantCount"
         binding.totalRentTextView.text =
             "Total rent\nKSh %,.0f".format(totalRent)
+
+        // Navigate from Dashboard to Add Tenant.
+        binding.addTenantButton.setOnClickListener {
+            val action =
+                DashboardFragmentDirections
+                    .actionDashboardFragmentToAddTenantFragment()
+
+            findNavController().navigate(action)
+        }
+
+        // Open View Tenants without passing a new tenant.
+        binding.viewTenantsButton.setOnClickListener {
+            val action =
+                DashboardFragmentDirections
+                    .actionDashboardFragmentToViewTenantsFragment()
+
+            findNavController().navigate(action)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onStop")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onDestroyView")
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TENANT_LIFECYCLE", "DashboardFragment: onDestroy")
     }
 }
